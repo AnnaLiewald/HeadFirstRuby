@@ -1,2 +1,2 @@
 # HeadFirstRuby
-This is my first repository, used to for learning Ruby with Head First Ruby Book.
+This is my first repository. I use this to learn Ruby with the Head First Ruby Book.
