@@ -1,31 +1,4 @@
-class Bird
-
-attr_reader :name, :age
-
-  def make_up_name
-    @name = "Tweety"
-  end
-
-  def make_up_age
-    @age = 5
-  end
-
-  def report_age
-    puts "#{@name} is #{@age} years old."
-  end
-
-  def talk
-    puts "#{@name} says 'Chirp, chirp'!"
-  end
-
-  def move(destination)
-    puts "#{@name} runs to the #{destination}."
-  end
-end
-
-
-# The class Cat even has validations!
-class Cat
+class Animal
 
   attr_reader :name, :age
 
@@ -43,6 +16,14 @@ class Cat
    @age = value
   end
 
+  def talk
+    puts "#{@name} says 'Meow'!"
+  end
+
+  def move(destination)
+    puts "#{@name} runs to the #{destination}."
+  end
+
   def report_age
     if @age > 1
       puts "#{@name} is #{@age} years old."
@@ -50,56 +31,59 @@ class Cat
       puts  "#{@name} is #{@age} year old."
     end
   end
-
-  def talk
-    puts "#{@name} says 'Meow'!"
-  end
-
-  def move(destination)
-    puts "#{@name} sneaks to the #{destination}."
-  end
-
 end
 
+class Cat < Animal
 
-class Dog
-
-  attr_accessor :age, :name
-
-  def make_up_age
-    @age = 5
+  def to_s
+    puts "#{name} the cat, age #{age}"
   end
-
-  def report_age
-    puts "#{@name} is #{@age} years old."
-  end
-
-  def talk
-    puts "#{@name} says 'Bark'!"
-  end
-
-  def move(destination)
-    puts "#{@name} runs to the #{destination}."
-  end
-
 end
+
+class Bird < Animal
+  def talk
+    puts "#{@name} says 'Chirp, chirp'!"
+  end
+end
+
+class Dog < Animal
+  def talk
+    puts "#{@name} says 'Bark!'!"
+  end
+end
+
+class Armadillo < Animal
+def move(destination)
+ puts "#{@name} unrolls!"
+ super
+end
+end
+
+dillon = Armadillo.new
+dillon.name = "Dillon"
+dillon.move ('house')
 
 
 cat = Cat.new
 cat.name = "Fluffy"
 cat.age = 1
+puts cat
 cat.report_age
 cat.talk
 cat.move ('litter box')
 
+
 dog = Dog.new
 dog.name = "Rex"
-dog.make_up_age
+dog.age = 3
 dog.report_age
 dog.talk
 dog.move('fence')
+puts dog 
 
 bird = Bird.new
-bird.make_up_name
+bird.name = "Tweety"
+bird.age = 2
+bird.report_age
 bird.talk
 bird.move('tree')
